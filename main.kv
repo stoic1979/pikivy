@@ -1,6 +1,18 @@
 #:import ListItemButton kivy.uix.listview.ListItemButton
 #:import la kivy.adapters.listadapter
 
+<ListItemButton>:
+    #on_press: app.change(*args)
+    on_press: app.change(*args)
+
+[CustomListItem@SelectableView+BoxLayout]:
+    size_hint_y: ctx.size_hint_y
+    ListItemButton:
+        text: ctx.text
+        on_press: 
+            print "load component"
+            #app.connect_wifi(ctx.text, t.text)
+
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -114,15 +126,28 @@
                     pos: self.pos
                     size: self.size
 
-            Label:
-                text: 'Settings'
+            TextInput:
+                text: 'Write Python Program Here'
+
+            TextInput:
+                text: 'See result here'
 
         # bottom vertical box
         BoxLayout:
             orientation: 'horizontal'
             size_hint: (1, .1)
-            Label:
-                text: 'Somethng here'
+
+            Button:
+                text: 'Run'
+                on_press: print "running program"
+
+            Button:
+                text: 'Clear Program'
+                on_press: print "running program"
+
+            Button:
+                text: 'Clear Output'
+                on_press: print "running program"
 
 <ComponentsScreen>:
 
@@ -161,8 +186,13 @@
                     pos: self.pos
                     size: self.size
 
-            Label:
-                text: 'Settings'
+            ListView:
+                id: lvWifi
+                #item_strings: ["Load Component %s " % str(index) for index in range(100)]
+                adapter:
+                    la.ListAdapter(
+                    data=["Load Component %s " % str(index) for index in range(1, 21)],
+                    template='CustomListItem')
 
         # bottom vertical box
         BoxLayout:
