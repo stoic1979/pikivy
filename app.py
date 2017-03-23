@@ -20,14 +20,18 @@ class HomeScreen(Screen):
 class SettingsScreen(Screen):
     pass
 
-class DashboardScreen(Screen):
+class ProgramsScreen(Screen):
+    pass
+
+class ComponentsScreen(Screen):
     pass
 
 # Create the screen manager
 sm = ScreenManager()
 sm.add_widget(HomeScreen(name='home'))
-sm.add_widget(DashboardScreen(name='dashboard'))
+sm.add_widget(ProgramsScreen(name='programs'))
 sm.add_widget(SettingsScreen(name='settings'))
+sm.add_widget(ComponentsScreen(name='components'))
 
 class MainApp(App):
 
