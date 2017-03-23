@@ -1,0 +1,106 @@
+#:import ListItemButton kivy.uix.listview.ListItemButton
+#:import la kivy.adapters.listadapter
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        # top vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Button:
+                text: 'Home'
+
+            Button:
+                text: 'ABC'
+
+
+        # central grid
+        Label:
+            text: "Main area"
+
+        # bottom vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (.5, .1)
+            Label:
+                text: 'abc'
+
+<SettingsScreen>:
+
+    BoxLayout:
+        id: bl
+
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        # top vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .15)
+            canvas:
+                Color:
+                    rgba: 37/255., 39/255., 30/255., 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+
+
+        # bottom vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Label:
+                text: 'Somethng here'
+
+
+<DashboardScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        # top vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .15)
+            canvas:
+                Color:
+                    rgba: 37/255., 39/255., 30/255., 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: 'BBB'
+
+            Label:
+                size_hint: (.15, 1)
+                text: 'AAA'
+
+
+        # central list view for wifi settings
+        BoxLayout:
+            padding: 10
+            canvas:
+                Color:
+                    rgba: 37/255., 39/255., 30/255., 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: 'Settings'
+
+        # bottom vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+            Label:
+                text: 'Somethng here'
