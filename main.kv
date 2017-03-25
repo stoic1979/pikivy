@@ -1,6 +1,9 @@
 #:import ListItemButton kivy.uix.listview.ListItemButton
 #:import la kivy.adapters.listadapter
 
+#: import CameraSettingsWidget app.CameraSettingsWidget
+#: import DhtSettingsWidget app.DhtSettingsWidget
+
 <ListItemButton>:
     #on_press: app.change(*args)
     on_press: app.change(*args)
@@ -12,8 +15,40 @@
     ListItemButton:
         text: ctx.text
         on_press: 
-            print "load component"
+            print "load component", ctx.text
+            if ctx.text == "Settings 1": print "1"
+            if ctx.text == "Settings 2": print "2"
             #app.connect_wifi(ctx.text, t.text)
+
+
+<CameraSettingsWidget>
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+
+        orientation: 'vertical'
+
+        Label:
+            text: "CAMERA SETTINGS"
+
+        TextInput:
+            id: ti
+        Button:
+            text: 'Add Camera'
+
+<DhtSettingsWidget>
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+
+        orientation: 'vertical'
+        Label:
+            text: "DHT SETTINGS"
+
+        TextInput:
+            id: ti
+        Button:
+            text: 'Add DHT'
 
 <HomeScreen>:
     BoxLayout:
@@ -81,16 +116,32 @@
                     pos: self.pos
                     size: self.size
 
-            ListView:
-                id: lvWifi
-                size_hint: (.5, 1)
-                #item_strings: ["Load Component %s " % str(index) for index in range(100)]
-                adapter:
-                    la.ListAdapter(
-                    data=["Settings %s " % str(index) for index in range(1, 21)],
-                    template='CustomListItem')
+            #ListView:
+                #id: lvWifi
+                #size_hint: (.5, 1)
+                #adapter:
+                    #la.ListAdapter(
+                    #data=["Settings %s " % str(index) for index in range(1, 21)],
+                    #template='CustomListItem')
 
             BoxLayout:
+                size_hint: (.5, 1)
+                orientation: 'vertical'
+                Button:
+                    text: "Camera Settings"
+                    on_press: 
+                        lytSettsRight.clear_widgets()
+                        lytSettsRight.add_widget(CameraSettingsWidget())
+
+                Button:
+                    text: "DHT Settings"
+                    on_press: 
+                        lytSettsRight.clear_widgets()
+                        lytSettsRight.add_widget(DhtSettingsWidget())
+
+
+            BoxLayout:
+                id: lytSettsRight
                 Label:
                     text: "Settings here..."
 

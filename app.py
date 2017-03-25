@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 
@@ -9,6 +10,13 @@ from kivy.config import Config
 Config.set('graphics', 'width', '1024')
 Config.set('graphics', 'height', '640')
 Config.set("graphics", "show_cursor", 1)
+
+# settings widgets
+class CameraSettingsWidget(Widget):
+    pass
+
+class DhtSettingsWidget(Widget):
+    pass
 
 # Create both screens. Please note the root.manager.current: this is how
 # you can control the ScreenManager from kv. Each screen has by default a
