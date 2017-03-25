@@ -4,8 +4,10 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 from kivy.config import Config
-Config.set('graphics', 'width', '800')
-Config.set('graphics', 'height', '480')
+#Config.set('graphics', 'width', '800')
+#Config.set('graphics', 'height', '480')
+Config.set('graphics', 'width', '1024')
+Config.set('graphics', 'height', '640')
 Config.set("graphics", "show_cursor", 1)
 
 # Create both screens. Please note the root.manager.current: this is how
