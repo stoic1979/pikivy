@@ -1,0 +1,43 @@
+#:import ListItemButton kivy.uix.listview.ListItemButton
+#:import la kivy.adapters.listadapter
+
+#: import Button kivy.uix.button.Button
+
+#: import MyMainWidget wmain.MyMainWidget
+
+<MyMainWidget>
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+
+        id: test
+
+        Button:
+            text: 'Add Device'
+            #on_press: test.add_widget(Button(text='Hello World'))
+        TextInput:
+            id: ti
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+
+        # top vertical box
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, .1)
+
+            Button:
+                text: 'Components'
+                #on_press: rightside.add_widget(Button(text='a'))
+
+                on_press: 
+                    rightside.clear_widgets()
+                    rightside.add_widget(MyMainWidget())
+
+        BoxLayout:
+            id: rightside
+
+

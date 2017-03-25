@@ -1,0 +1,20 @@
+#:kivy 1.0
+#:import SomeWidget main.SomeWidget
+
+# rules for the widget
+<SomeWidget>:
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+        orientation: "vertical"
+        Label:
+            text: "hello"
+        Button:
+            text: "world"
+
+# root
+BoxLayout:
+    id: layout
+    Button:
+        text: "add"
+        on_press: layout.add_widget(SomeWidget())
