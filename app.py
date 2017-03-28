@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.button import Button
+from kivy.properties import StringProperty
 
 
 from kivy.config import Config
@@ -10,6 +12,10 @@ from kivy.config import Config
 Config.set('graphics', 'width', '1024')
 Config.set('graphics', 'height', '640')
 Config.set("graphics", "show_cursor", 1)
+
+class IconButton(Button):
+    imgSource = StringProperty("images/pi.png")
+    btnText = StringProperty("ABC")
 
 # settings widgets
 class CameraSettingsWidget(Widget):

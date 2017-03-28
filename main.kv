@@ -2,6 +2,7 @@
 #:import la kivy.adapters.listadapter
 
 #: import CameraSettingsWidget app.CameraSettingsWidget
+#: import IconButton app.IconButton
 #: import DhtSettingsWidget app.DhtSettingsWidget
 
 <ListItemButton>:
@@ -20,6 +21,17 @@
             if ctx.text == "Settings 2": print "2"
             #app.connect_wifi(ctx.text, t.text)
 
+
+<IconButton>:
+    text: self.btnText
+    halign: 'left'
+    valign: 'middle'
+    text_size: img.size
+    Image:
+        id: img
+        source: self.parent.imgSource
+        x: self.parent.x + self.parent.width/8
+        center_y: self.parent.center_y
 
 <CameraSettingsWidget>
     BoxLayout:
@@ -268,61 +280,47 @@
                         pos: self.pos
                         size: self.size
 
-                cols: 4
+                cols: 2
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Accelerometer"
+                    btnText: "Accelerometer Sensor"
+                    imgSource: 'images/sensors/accelerometer.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Blood Pressure"
+                    btnText: "Blood Pressure Sensor"
+                    imgSource: 'images/sensors/blood_pressure.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Heart Beat"
+                    btnText: "Heart Beat Sensor"
+                    imgSource: 'images/sensors/heart_beat.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "IR"
+                    btnText: "IR Sensor"
+                    imgSource: 'images/sensors/ir.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Light"
+                    btnText: "Light Sensor"
+                    imgSource: 'images/sensors/light.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "PIR"
+                    btnText: "PIR Sensor"
+                    imgSource: 'images/sensors/pir.png'
+
+                IconButton:
+                    on_press: print "Temp. & Humidity"
+                    btnText: "Temperature & Humidity Sensor"
+                    imgSource: 'images/sensors/temp_humidity.png'
+
+                IconButton:
+                    on_press: print "Ultrasonic Sensor"
+                    btnText: "Ultrasonic Sensor"
+                    imgSource: 'images/sensors/ultrasonic.png'
 
 
         # bottom vertical box
@@ -380,61 +378,48 @@
                         pos: self.pos
                         size: self.size
 
-                cols: 4
+                cols: 2
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Audio"
+                    btnText: "Audio"
+                    imgSource: 'images/multimedia/audio.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Audio 1"
+                    btnText: "Audio 1"
+                    imgSource: 'images/multimedia/audio1.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Camera"
+                    btnText: "Camera"
+                    imgSource: 'images/multimedia/camera.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Rpi Camera"
+                    btnText: "Rpi Camera"
+                    imgSource: 'images/multimedia/rpi_camera.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
+
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
+
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
+
 
 
         # bottom vertical box
@@ -491,61 +476,47 @@
                         pos: self.pos
                         size: self.size
 
-                cols: 4
+                cols: 2
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Bluetooth"
+                    btnText: "Bluetooth"
+                    imgSource: 'images/comm_modules/bluetooth.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "GPS"
+                    btnText: "GPS"
+                    imgSource: 'images/comm_modules/gps.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "GSM"
+                    btnText: "GSM"
+                    imgSource: 'images/comm_modules/gsm.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Wi-Fi"
+                    btnText: "Wi-Fi"
+                    imgSource: 'images/comm_modules/wifi.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "ZigBee"
+                    btnText: "ZigBee"
+                    imgSource: 'images/comm_modules/zigbee.png'
 
-                Button:
-                    on_press: root.manager.current = 'dashboard'
-                    Image:
-                        source: 'images/pi.png'
-                        center_x: self.parent.center_x
-                        center_y: self.parent.center_y
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
+
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
+
+                IconButton:
+                    on_press: print "Dummy"
+                    btnText: "Dummy"
+                    imgSource: 'images/comm_modules/bluetooth.png'
 
 
         # bottom vertical box
