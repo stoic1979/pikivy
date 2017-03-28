@@ -1,9 +1,11 @@
 #:import ListItemButton kivy.uix.listview.ListItemButton
 #:import la kivy.adapters.listadapter
 
-#: import CameraSettingsWidget app.CameraSettingsWidget
 #: import IconButton app.IconButton
-#: import DhtSettingsWidget app.DhtSettingsWidget
+
+#: import CameraSettingsWidget app.CameraSettingsWidget
+#: import WifiSettingsWidget app.WifiSettingsWidget
+#: import BluetoothSettingsWidget app.BluetoothSettingsWidget
 
 <ListItemButton>:
     #on_press: app.change(*args)
@@ -43,24 +45,68 @@
         Label:
             text: "CAMERA SETTINGS"
 
-        TextInput:
-            id: ti
-        Button:
-            text: 'Add Camera'
+        Label:
+            text: "Enable Camera"
 
-<DhtSettingsWidget>
+        Button:
+            text: 'SAVE'
+
+<WifiSettingsWidget>
     BoxLayout:
         pos: root.pos
         size: root.size
 
         orientation: 'vertical'
         Label:
-            text: "DHT SETTINGS"
+            text: "WIFI SETTINGS"
 
-        TextInput:
-            id: ti
+        Label:
+            text: "Enable Wifi"
+
         Button:
-            text: 'Add DHT'
+            text: 'SAVE'
+
+<BluetoothSettingsWidget>
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+        orientation: 'vertical'
+
+        Label:
+            text: ""
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: "BLUETOOTH SETTINGS"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: " "
+
+
+                    BoxLayout:
+                        size_hint: (.6, 1)
+                        orientation: 'horizontal'
+                        CheckBox:
+                            id: cbox
+
+                        Label:
+                            text: "Enable Bluetooth"
+
+                    Label:
+                        text: " "
+
+            Button:
+                text: 'SAVE'
+
+        Label:
+            text: ""
 
 <HomeScreen>:
     BoxLayout:
@@ -151,10 +197,16 @@
                         lytSettsRight.add_widget(CameraSettingsWidget())
 
                 Button:
-                    text: "DHT Settings"
+                    text: "Wifi Settings"
                     on_press: 
                         lytSettsRight.clear_widgets()
-                        lytSettsRight.add_widget(DhtSettingsWidget())
+                        lytSettsRight.add_widget(WifiSettingsWidget())
+
+                Button:
+                    text: "Bluetooth Settings"
+                    on_press: 
+                        lytSettsRight.clear_widgets()
+                        lytSettsRight.add_widget(BluetoothSettingsWidget())
 
 
             BoxLayout:

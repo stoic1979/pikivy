@@ -21,7 +21,10 @@ class IconButton(Button):
 class CameraSettingsWidget(Widget):
     pass
 
-class DhtSettingsWidget(Widget):
+class WifiSettingsWidget(Widget):
+    pass
+
+class BluetoothSettingsWidget(Widget):
     pass
 
 # Create both screens. Please note the root.manager.current: this is how
