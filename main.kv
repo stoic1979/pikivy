@@ -59,7 +59,7 @@
         # top vertical box
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: (1, .1)
+            size_hint: (1, .2)
 
             Button:
                 text: 'Programs'
@@ -70,20 +70,29 @@
                 on_press: root.manager.current = 'settings'
 
             Button:
-                text: 'Components'
+                text: 'Select Sensors'
+                on_press: root.manager.current = 'components'
+
+            Button:
+                text: 'Select Multimedia'
+                on_press: root.manager.current = 'components'
+
+            Button:
+                text: 'Select Commn. Protocol'
                 on_press: root.manager.current = 'components'
 
 
+        Label:
+            text: ""
+            size_hint: (1, .2)
+        Image:
+            source: "images/pi.png"
+
         # central grid
         Label:
-            text: "Main area"
+            text: "This is description of my project, I will add more content here, \nI really like working with pi, it is so cool piece of hardware, \nso versatile, I like GPIO, I like sensors etc."
+            multiline: True
 
-        # bottom vertical box
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint: (.5, .1)
-            Label:
-                text: 'abc'
 
 <SettingsScreen>:
 
