@@ -33,7 +33,16 @@ class SettingsScreen(Screen):
 class ProgramsScreen(Screen):
     pass
 
-class ComponentsScreen(Screen):
+class SensorsScreen(Screen):
+    pass
+
+class MultimediaScreen(Screen):
+    pass
+
+class CommnProtocolScreen(Screen):
+    pass
+
+class HelpScreen(Screen):
     pass
 
 # Create the screen manager
@@ -41,7 +50,10 @@ sm = ScreenManager()
 sm.add_widget(HomeScreen(name='home'))
 sm.add_widget(ProgramsScreen(name='programs'))
 sm.add_widget(SettingsScreen(name='settings'))
-sm.add_widget(ComponentsScreen(name='components'))
+sm.add_widget(SensorsScreen(name='sensors'))
+sm.add_widget(MultimediaScreen(name='multimedia'))
+sm.add_widget(CommnProtocolScreen(name='com_protocol'))
+sm.add_widget(HelpScreen(name='help'))
 
 class MainApp(App):
 
