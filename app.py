@@ -13,6 +13,27 @@ Config.set('graphics', 'width', '1024')
 Config.set('graphics', 'height', '640')
 Config.set("graphics", "show_cursor", 1)
 
+#------------------------------------------------------------------------------------------------#
+#                  CONFIGURATION SETTINGS    
+#------------------------------------------------------------------------------------------------#
+
+# workshop directory to keep all projects etc.
+# PROJECTS_DIR = "/home/pi/projects/"
+#PROJECTS_DIR = "/home/pi/workshop/"
+
+# uncomment this for desktop testing
+PROJECTS_DIR = "/home/ndev/Desktop/pi_components"
+
+
+# dht11 project with dependencies like adafruit package and test project
+DHT11_SRC_URL = "http://weavebytes.com/pitools/dht11.zip"
+DHT11_SETUP_URL = "http://weavebytes.com/pitools/dht11_setup.txt"
+
+CAMERA_SRC_URL = "http://weavebytes.com/pitools/dht11.zip"
+CAMERA_SETUP_URL = "http://weavebytes.com/pitools/camera_setup.txt"
+
+#------------------------------------------------------------------------------------------------#
+
 class IconButton(Button):
     imgSource = StringProperty("images/pi.png")
     btnText = StringProperty("ABC")
@@ -79,6 +100,14 @@ class MainApp(App):
 
     def connect_wifi(self, nw, psw):
         print "--connect_wifi--", nw, psw
+
+    def get_dht11(self):
+        download_and_save(DHT11_SRC_URL, PROJECTS_DIR)
+        download_and_install(DHT11_SETUP_URL)
+    
+    def get_camera(self):
+        download_and_save(CAMERA_SRC_URL, PROJECTS_DIR)
+        download_and_install(CAMERA_SETUP_URL)
 
 
 if __name__ == '__main__':
