@@ -5,6 +5,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.button import Button
 from kivy.properties import StringProperty
 
+from nwutils import *
+
 
 from kivy.config import Config
 #Config.set('graphics', 'width', '800')
@@ -101,13 +103,71 @@ class MainApp(App):
     def connect_wifi(self, nw, psw):
         print "--connect_wifi--", nw, psw
 
-    def get_dht11(self):
+
+    #----------------------- SENSOR COMPONENTS -----------------------------------------#
+
+    def get_dht11_sensor(self):
         download_and_save(DHT11_SRC_URL, PROJECTS_DIR)
         download_and_install(DHT11_SETUP_URL)
+
+    def get_accelerometer_sensor(self):
+        print "setting accelerometer sensor"
+    
+    def get_blood_pressure_sensor(self):
+        print "setting blood pressure sensor"
+    
+    def get_heart_beat_sensor(self):
+        print "setting heart beat sensor"
+
+    def get_ir_sensor(self):
+        print "setting IR sensor"
+
+    def get_light_sensor(self):
+        print "setting light sensor"
+
+    def get_pir_sensor(self):
+        print "setting pir sensor"
+
+    def get_temp_humidity_sensor(self):
+        print "setting temp humidity sensor"
+
+    def get_ultrasonia_sensor(self):
+        print "setting ultrasonic sensor"
+    
+
+
+    #----------------------- MULTIMEDIA COMPONENTS -------------------------------------#
+
+    def get_audio(self):
+        print "setting up audio component"
+
+    def get_audio1(self):
+        print "setting up audio1 component"
     
     def get_camera(self):
         download_and_save(CAMERA_SRC_URL, PROJECTS_DIR)
         download_and_install(CAMERA_SETUP_URL)
+
+    def get_rpi_camera(self):
+        print "setting up rpi_camera component"
+
+    #----------------------- COMMN. PROTOCOL COMPONENTS --------------------------------#
+
+    def get_bluetooth(self):
+        print "setting up bluetooth component"
+
+    def get_gps(self):
+        print "setting up GPS component"
+
+    def get_gsm(self):
+        print "setting up GSM component"
+
+    def get_wifi(self):
+        print "setting up WiFi component"
+
+    def get_zigbee(self):
+        print "setting up ZigBee component"
+    
 
 
 if __name__ == '__main__':
