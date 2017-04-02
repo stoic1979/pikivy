@@ -39,32 +39,85 @@
     BoxLayout:
         pos: root.pos
         size: root.size
-
         orientation: 'vertical'
 
         Label:
-            text: "CAMERA SETTINGS"
+            text: ""
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: "CAMERA SETTINGS"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: " "
+
+
+                    BoxLayout:
+                        size_hint: (.6, 1)
+                        orientation: 'horizontal'
+                        CheckBox:
+                            id: cbox
+
+                        Label:
+                            text: "Enable Camera"
+
+                    Label:
+                        text: " "
+
+            Button:
+                text: 'SAVE'
 
         Label:
-            text: "Enable Camera"
-
-        Button:
-            text: 'SAVE'
+            text: ""
 
 <WifiSettingsWidget>
     BoxLayout:
         pos: root.pos
         size: root.size
-
         orientation: 'vertical'
-        Label:
-            text: "WIFI SETTINGS"
 
         Label:
-            text: "Enable Wifi"
+            text: ""
 
-        Button:
-            text: 'SAVE'
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: "WIFI SETTINGS"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: " "
+
+
+                    BoxLayout:
+                        size_hint: (.6, 1)
+                        orientation: 'horizontal'
+                        CheckBox:
+                            id: cbox
+
+                        Label:
+                            text: "Enable Wifi"
+
+                    Label:
+                        text: " "
+
+            Button:
+                text: 'SAVE'
+
+        Label:
+            text: ""
 
 <BluetoothSettingsWidget>
     BoxLayout:
