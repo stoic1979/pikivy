@@ -10,7 +10,6 @@ url = "https://freeboard.io/board/G6qZxn"
 width=800
 height=480
  
-#Funzioni per i bottoni
 def go_back(widget, data=None):
     webview.go_back()
  
@@ -30,7 +29,6 @@ def update_buttons(widget, data=None):
  
 win = gtk.Window()
 webview = webkit.WebView()
-#crea finestra con scroll
 sw = gtk.ScrolledWindow()
  
 win.set_size_request(width,height)
