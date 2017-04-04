@@ -158,7 +158,7 @@ class MainApp(App):
         download_and_install(ULTRASONIC_SETUP_URL)
 
     def get_idr_sensor(self, lblStatus):
-        print "setting ultrasonic sensor"
+        print "setting idr sensor"
         
     def get_sound_sensor(self, lblStatus):
         print "setting sound sensor"
