@@ -281,6 +281,8 @@
 <ProgramsScreen>:
 
     BoxLayout:
+        id: bl
+
         orientation: 'vertical'
         spacing: 10
         padding: 10
@@ -288,26 +290,18 @@
         # top vertical box
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: (1, .15)
-            canvas:
-                Color:
-                    rgba: 37/255., 39/255., 30/255., 1
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+            size_hint: (1, .1)
 
             Button:
-                text: 'Home'
                 size_hint: (.15, 1)
+                text: 'Home'
                 on_press: root.manager.current = 'home'
 
             Label:
                 text: 'Programs'
 
-
-        # central list view for wifi settings
         BoxLayout:
-            padding: 10
+            orientation: 'horizontal'
             canvas:
                 Color:
                     rgba: 37/255., 39/255., 30/255., 1
@@ -315,28 +309,44 @@
                     pos: self.pos
                     size: self.size
 
-            TextInput:
-                text: 'Write Python Program Here'
+            BoxLayout:
+                size_hint: (.5, 1)
+                orientation: 'vertical'
+                Button:
+                    text: "Program 1"
+                    on_press: print "Program 1"
 
-            TextInput:
-                text: 'See result here'
+                Button:
+                    text: "Program 2"
+                    on_press: print "Program 2"
 
-        # bottom vertical box
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint: (1, .1)
+                Button:
+                    text: "Program 3"
+                    on_press: print "Program 3"
 
-            Button:
-                text: 'Run'
-                on_press: print "running program"
+                Button:
+                    text: "Program 4"
+                    on_press: print "Program 4"
 
-            Button:
-                text: 'Clear Program'
-                on_press: print "running program"
+                Button:
+                    text: "Program 5"
+                    on_press: print "Program 5"
 
-            Button:
-                text: 'Clear Output'
-                on_press: print "running program"
+                Button:
+                    text: "Program 6"
+                    on_press: print "Program 6"
+
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: "Instruction for the program"
+                TextInput:
+                    text: "Program"
+                TextInput:
+                    text: "Output"
+                Button:
+                    text: "Run Program"
+
 
 <SensorsScreen>:
 
@@ -418,12 +428,18 @@
                     imgSource: 'images/sensors/pir.png'
 
                 IconButton:
-                    on_press: app.get_temp_humidity_sensor()
+                    on_press: 
+                        lblStatus.text = "Setting up Temperature & Humidity sensor, please wait..." 
+                        app.get_temp_humidity_sensor(lblStatus)
+
                     btnText: "Temperature & Humidity Sensor"
                     imgSource: 'images/sensors/temp_humidity.png'
 
                 IconButton:
-                    on_press: app.get_ultrasonia_sensor()
+                    on_press: 
+                        #app.get_ultrasonia_sensor()
+                        lblStatus.text = "                                                               "
+                        lblStatus.text = "Setting up Ultrasonic sensor, please wait..." 
                     btnText: "Ultrasonic Sensor"
                     imgSource: 'images/sensors/ultrasonic.png'
 
@@ -433,7 +449,9 @@
             orientation: 'horizontal'
             size_hint: (1, .1)
             Label:
-                text: 'Tip: Click on the senor to install the code for that sensor...'
+                id: lblStatus
+                #text: 'Tip: Click on the senor to install the code for that sensor...'
+                text: ''
 
 
 <MultimediaScreen>:

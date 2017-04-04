@@ -7,6 +7,8 @@ from kivy.properties import StringProperty
 
 from nwutils import *
 
+import time
+
 
 from kivy.config import Config
 #Config.set('graphics', 'width', '800')
@@ -29,7 +31,7 @@ PROJECTS_DIR = "/home/ndev/Desktop/pi_components"
 
 # dht11 project with dependencies like adafruit package and test project
 DHT11_SRC_URL = "http://weavebytes.com/pitools/dht11.zip"
-DHT11_SETUP_URL = "http://weavebytes.com/pitools/dht11_setup.txt"
+DHT11_SETUP_URL = "http://weavebytes.com/pitools/dht11_setup.sh"
 
 CAMERA_SRC_URL = "http://weavebytes.com/pitools/dht11.zip"
 CAMERA_SETUP_URL = "http://weavebytes.com/pitools/camera_setup.txt"
@@ -106,10 +108,6 @@ class MainApp(App):
 
     #----------------------- SENSOR COMPONENTS -----------------------------------------#
 
-    def get_dht11_sensor(self):
-        download_and_save(DHT11_SRC_URL, PROJECTS_DIR)
-        download_and_install(DHT11_SETUP_URL)
-
     def get_accelerometer_sensor(self):
         print "setting accelerometer sensor"
     
@@ -128,8 +126,13 @@ class MainApp(App):
     def get_pir_sensor(self):
         print "setting pir sensor"
 
-    def get_temp_humidity_sensor(self):
+    def get_temp_humidity_sensor(self, lblStatus):
         print "setting temp humidity sensor"
+        lblStatus.text = "Setting up Temperature & Humidity sensor, please wait..." 
+        download_and_save(DHT11_SRC_URL, PROJECTS_DIR)
+        download_and_install(DHT11_SETUP_URL)
+        lblStatus.text = "Temperature & Humidity Sensor Installed"
+        print "Temperature & Humidity Sensor Installed"
 
     def get_ultrasonia_sensor(self):
         print "setting ultrasonic sensor"
