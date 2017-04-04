@@ -14,7 +14,7 @@ from kivy.config import Config
 #Config.set('graphics', 'width', '800')
 #Config.set('graphics', 'height', '480')
 Config.set('graphics', 'width', '1024')
-Config.set('graphics', 'height', '640')
+Config.set('graphics', 'height', '700')
 Config.set("graphics", "show_cursor", 1)
 
 #------------------------------------------------------------------------------------------------#
@@ -35,6 +35,18 @@ DHT11_SETUP_URL = "http://weavebytes.com/pitools/dht11_setup.sh"
 
 CAMERA_SRC_URL = "http://weavebytes.com/pitools/dht11.zip"
 CAMERA_SETUP_URL = "http://weavebytes.com/pitools/camera_setup.txt"
+
+IR_SRC_URL = "http://weavebytes.com/pitools/ir_source.zip"
+IR_SETUP_URL = "http://weavebytes.com/pitools/ir_setup.txt"
+
+PPIR_SRC_URL = "http://weavebytes.com/pitools/pir_source.zip"
+PIR_SETUP_URL = "http://weavebytes.com/pitools/pir_setup.txt"
+
+LIGHT_SRC_URL = "http://weavebytes.com/pitools/light_source.zip"
+LIGHT_SETUP_URL = "http://weavebytes.com/pitools/light_setup.txt"
+
+ULTRASONIC_SRC_URL = "http://weavebytes.com/pitools/ultrasonic_source.zip"
+ULTRASONIC_SETUP_URL = "http://weavebytes.com/pitools/ultrasonic_setup.txt"
 
 #------------------------------------------------------------------------------------------------#
 
@@ -108,23 +120,29 @@ class MainApp(App):
 
     #----------------------- SENSOR COMPONENTS -----------------------------------------#
 
-    def get_accelerometer_sensor(self):
+    def get_accelerometer_sensor(self, lblStatus):
         print "setting accelerometer sensor"
     
-    def get_blood_pressure_sensor(self):
+    def get_blood_pressure_sensor(self, lblStatus):
         print "setting blood pressure sensor"
     
-    def get_heart_beat_sensor(self):
+    def get_heart_beat_sensor(self, lblStatus):
         print "setting heart beat sensor"
 
-    def get_ir_sensor(self):
+    def get_ir_sensor(self, lblStatus):
         print "setting IR sensor"
+        download_and_save(IR_SRC_URL, PROJECTS_DIR)
+        download_and_install(IR_SETUP_URL)
 
-    def get_light_sensor(self):
+    def get_light_sensor(self, lblStatus):
         print "setting light sensor"
+        download_and_save(LIGHT_SRC_URL, PROJECTS_DIR)
+        download_and_install(LIGHT_SETUP_URL)
 
-    def get_pir_sensor(self):
+    def get_pir_sensor(self, lblStatus):
         print "setting pir sensor"
+        download_and_save(PIR_SRC_URL, PROJECTS_DIR)
+        download_and_install(PIR_SETUP_URL)
 
     def get_temp_humidity_sensor(self, lblStatus):
         print "setting temp humidity sensor"
@@ -134,8 +152,16 @@ class MainApp(App):
         lblStatus.text = "Temperature & Humidity Sensor Installed"
         print "Temperature & Humidity Sensor Installed"
 
-    def get_ultrasonia_sensor(self):
+    def get_ultrasonia_sensor(self, lblStatus):
         print "setting ultrasonic sensor"
+        download_and_save(ULTRASONIC_SRC_URL, PROJECTS_DIR)
+        download_and_install(ULTRASONIC_SETUP_URL)
+
+    def get_idr_sensor(self, lblStatus):
+        print "setting ultrasonic sensor"
+        
+    def get_sound_sensor(self, lblStatus):
+        print "setting sound sensor"
     
 
 

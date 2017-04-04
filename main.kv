@@ -358,7 +358,7 @@
         # top vertical box
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: (1, .15)
+            size_hint: (1, .07)
             canvas:
                 Color:
                     rgba: 37/255., 39/255., 30/255., 1
@@ -437,17 +437,33 @@
 
                 IconButton:
                     on_press: 
-                        #app.get_ultrasonia_sensor()
                         lblStatus.text = "                                                               "
                         lblStatus.text = "Setting up Ultrasonic sensor, please wait..." 
+                        app.get_ultrasonia_sensor()
                     btnText: "Ultrasonic Sensor"
                     imgSource: 'images/sensors/ultrasonic.png'
+
+                IconButton:
+                    on_press: 
+                        lblStatus.text = "Setting up sound sensor, please wait..." 
+                        app.get_idr_sensor(lblStatus)
+
+                    btnText: "IDR Sensor"
+                    imgSource: 'images/sensors/idr.png'
+
+                IconButton:
+                    on_press: 
+                        lblStatus.text = "                                                               "
+                        lblStatus.text = "Setting up Sound sensor, please wait..." 
+                        app.get_sound_sensor(lblStatus)
+                    btnText: "Sound Sensor"
+                    imgSource: 'images/sensors/sound.png'
 
 
         # bottom vertical box
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: (1, .1)
+            size_hint: (1, .05)
             Label:
                 id: lblStatus
                 #text: 'Tip: Click on the senor to install the code for that sensor...'
